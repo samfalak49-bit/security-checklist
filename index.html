@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>FLIPS Rabdan - Daily Security Checklist</title>
 
 <style>
   body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
-  .title-box {background:#003366;color:white;padding:18px;border-radius:12px;text-align:center;margin-bottom:20px;}
+  .title-box {background:#003366; color:white; padding:18px; border-radius:12px; text-align:center; margin-bottom:20px;}
   .title-main {font-size:22px; font-weight:bold;}
   .title-sub-big {font-size:26px; font-weight:bold; margin-top:10px;}
   .title-small {font-size:16px; margin-top:6px; opacity:0.95;}
   h2 {margin-top: 25px; background: #0066cc; color: white; padding: 10px; border-radius: 6px; font-size: 17px;}
   .item {background: white; margin: 8px 0; padding: 12px; border-radius: 6px; font-size: 16px; border-left: 4px solid #0066cc;}
-  select {font-size: 16px; padding: 6px; width: 100%; margin-top:4px; border-radius:6px;}
-  .yes {background:#b6f7b1 !important;}
-  .no {background:#f7b1b1 !important;}
+  select, input[type="text"], input[type="date"], textarea {font-size:16px; padding:8px; width:100%; margin-top:4px; border-radius:6px; box-sizing:border-box;}
+  textarea {min-height:80px; resize:vertical;}
   .section-box {background:white; padding:12px; border-radius:8px; margin-bottom:15px; border-left:4px solid:#003366;}
   label {font-weight:bold;}
-  input[type="text"], input[type="date"], textarea {width:100%; padding:8px; font-size:16px; margin-top:4px; box-sizing:border-box;}
-  textarea {min-height:80px; resize:vertical;}
-  #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:white;}
-  #submitBtn:active {opacity:0.8;}
+  #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:white; cursor:pointer;}
+  #submitBtn:disabled {opacity:.6; cursor:not-allowed;}
+  .note {font-size:13px; color:#555; margin-top:10px; text-align:center;}
 </style>
 </head>
 
@@ -32,7 +31,8 @@
   <div class="title-small">HSE Section</div>
 </div>
 
-<form id="securityForm">
+<form id="checklistForm">
+
   <div class="section-box">
     <label>Date:</label>
     <input type="date" name="date" required>
@@ -54,93 +54,92 @@
     <textarea name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
   </div>
 
+  <!-- Helper -->
+  <script>
+    function yn(name){
+      return `
+      <select name="${name}" required>
+        <option value="">Select</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="N/A">N/A</option>
+      </select>`;
+    }
+  </script>
+
   <h2>Access Control & Gates</h2>
-  <div class="item"><div>Gates operational & locks working</div>
-    <select class="check-item" name="ac_gatesLocks" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
-  </div>
-  <div class="item"><div>Visitor entry logged</div>
-    <select class="check-item" name="ac_visitorLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
-  </div>
-  <div class="item"><div>No unauthorized entry</div>
-    <select class="check-item" name="ac_noUnauthorized" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
-  </div>
-  <div class="item"><div>Staircases & elevators securely closed</div>
-    <select class="check-item" name="ac_stairsElevClosed" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
-  </div>
+  <div class="item"><div>Gates operational & locks working</div><script>document.write(yn("ac_gatesLocks"));</script></div>
+  <div class="item"><div>Visitor entry logged</div><script>document.write(yn("ac_visitorLogged"));</script></div>
+  <div class="item"><div>No unauthorized entry</div><script>document.write(yn("ac_noUnauthorized"));</script></div>
+  <div class="item"><div>Staircases & elevators securely closed</div><script>document.write(yn("ac_stairsElevClosed"));</script></div>
 
   <h2>CCTV System</h2>
-  <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Lenses clean</div><select class="check-item" name="cctv_lensesClean" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Night vision checked</div><select class="check-item" name="cctv_nightVision" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Live monitoring done</div><select class="check-item" name="cctv_liveMonitoring" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>All cameras functioning</div><script>document.write(yn("cctv_allCameras"));</script></div>
+  <div class="item"><div>NVR/DVR active</div><script>document.write(yn("cctv_nvrDvr"));</script></div>
+  <div class="item"><div>No blind spots</div><script>document.write(yn("cctv_noBlindSpots"));</script></div>
+  <div class="item"><div>Lenses clean</div><script>document.write(yn("cctv_lensesClean"));</script></div>
+  <div class="item"><div>Night vision checked</div><script>document.write(yn("cctv_nightVision"));</script></div>
+  <div class="item"><div>Live monitoring done</div><script>document.write(yn("cctv_liveMonitoring"));</script></div>
+  <div class="item"><div>CCTV control room secure</div><script>document.write(yn("cctv_controlRoomSecure"));</script></div>
 
   <h2>Perimeter & Outdoor Patrol</h2>
-  <div class="item"><div>Fence/walls intact</div><select class="check-item" name="per_fenceWalls" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Waste area safe</div><select class="check-item" name="per_wasteAreaSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fence/walls intact</div><script>document.write(yn("per_fenceWalls"));</script></div>
+  <div class="item"><div>Exterior gates secure</div><script>document.write(yn("per_extGates"));</script></div>
+  <div class="item"><div>Parking safe & well-lit</div><script>document.write(yn("per_parkingSafe"));</script></div>
+  <div class="item"><div>Waste area safe</div><script>document.write(yn("per_wasteAreaSafe"));</script></div>
+  <div class="item"><div>External exits clear</div><script>document.write(yn("per_externalExitsClear"));</script></div>
 
   <h2>Internal Building Patrol</h2>
-  <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency lighting OK</div><select class="check-item" name="int_emergencyLighting" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire extinguishers sealed</div><select class="check-item" name="int_fireExtSealed" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Doors & windows secured</div><script>document.write(yn("int_doorsWindows"));</script></div>
+  <div class="item"><div>Emergency exits clear</div><script>document.write(yn("int_emergencyExits"));</script></div>
+  <div class="item"><div>Emergency lighting OK</div><script>document.write(yn("int_emergencyLighting"));</script></div>
+  <div class="item"><div>Fire extinguishers sealed</div><script>document.write(yn("int_fireExtSealed"));</script></div>
+  <div class="item"><div>Hose reels accessible</div><script>document.write(yn("int_hoseReels"));</script></div>
+  <div class="item"><div>Fire panel status normal</div><script>document.write(yn("int_firePanel"));</script></div>
+  <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><script>document.write(yn("int_restrictedRooms"));</script></div>
 
   <h2>Student & Staff Safety</h2>
-  <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No crowding at gates</div><select class="check-item" name="ss_noCrowding" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Arrival supervised</div><script>document.write(yn("ss_arrival"));</script></div>
+  <div class="item"><div>Dismissal supervised</div><script>document.write(yn("ss_dismissal"));</script></div>
+  <div class="item"><div>No crowding at gates</div><script>document.write(yn("ss_noCrowding"));</script></div>
 
   <h2>Environmental & Housekeeping</h2>
-  <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Noise levels normal</div><select class="check-item" name="eh_noiseNormal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Waste bins OK</div><script>document.write(yn("eh_wasteBins"));</script></div>
+  <div class="item"><div>AC/electrical rooms safe</div><script>document.write(yn("eh_acRoomsSafe"));</script></div>
+  <div class="item"><div>No chemical hazards</div><script>document.write(yn("eh_noChemical"));</script></div>
+  <div class="item"><div>No water stagnation</div><script>document.write(yn("eh_noStagnation"));</script></div>
+  <div class="item"><div>Noise levels normal</div><script>document.write(yn("eh_noiseNormal"));</script></div>
 
   <h2>Traffic & Parking</h2>
-  <div class="item"><div>Bus area monitored</div><select class="check-item" name="tp_busArea" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire route accessible</div><select class="check-item" name="tp_fireRoute" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Bus area monitored</div><script>document.write(yn("tp_busArea"));</script></div>
+  <div class="item"><div>Fire route accessible</div><script>document.write(yn("tp_fireRoute"));</script></div>
 
   <h2>Reporting & Documentation</h2>
-  <div class="item"><div>CCTV incidents logged</div><select class="check-item" name="rd_cctvLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Visitor logs updated</div><select class="check-item" name="rd_visitorLogs" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>CCTV incidents logged</div><script>document.write(yn("rd_cctvLogged"));</script></div>
+  <div class="item"><div>Visitor logs updated</div><script>document.write(yn("rd_visitorLogs"));</script></div>
 
   <h2>Emergency Preparedness</h2>
-  <div class="item"><div>Fire alarm normal</div><select class="check-item" name="ep_fireAlarm" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>First aid kits stocked</div><select class="check-item" name="ep_firstAid" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fire alarm normal</div><script>document.write(yn("ep_fireAlarm"));</script></div>
+  <div class="item"><div>Extinguishers accessible</div><script>document.write(yn("ep_extAccessible"));</script></div>
+  <div class="item"><div>First aid kits stocked</div><script>document.write(yn("ep_firstAid"));</script></div>
+  <div class="item"><div>Assembly signage visible</div><script>document.write(yn("ep_assemblySignage"));</script></div>
+  <div class="item"><div>Emergency access clear</div><script>document.write(yn("ep_emergencyAccess"));</script></div>
 
   <button id="submitBtn" type="submit">SUBMIT</button>
+  <div class="note">PDF will be emailed automatically after submit.</div>
 </form>
 
 <script>
-  // COLOR SELECTS (Yes/No)
-  document.querySelectorAll('.check-item').forEach(function(sel){
-    sel.addEventListener('change', function(){
-      sel.classList.remove('yes','no');
-      if (sel.value === 'Yes') sel.classList.add('yes');
-      else if (sel.value === 'No') sel.classList.add('no');
-    });
-  });
-
+  // ✅ PUT YOUR SECURITY WEB APP URL HERE
   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
 
-  // put ANY email here (your script will also send to br1-ohs automatically)
+  // ✅ Your email (also BR1-OHS is added in Code.gs automatically)
   const RECEIVER_EMAIL = "partygifts850@gmail.com";
 
-  const form = document.getElementById("securityForm");
+  const form = document.getElementById("checklistForm");
+  const btn = document.getElementById("submitBtn");
 
-  function collectData() {
+  function collectFormData() {
     const data = {};
     form.querySelectorAll("input, select, textarea").forEach(el => {
       if (!el.name) return;
@@ -150,25 +149,28 @@
     return data;
   }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const payload = collectData();
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    btn.disabled = true;
 
     try {
       const res = await fetch(WEB_APP_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(collectFormData())
       });
+
       const txt = (await res.text()).trim();
       if (txt === "OK") {
-        alert("Sent successfully ✅");
+        alert("Sent successfully ✅ Check your email.");
         form.reset();
       } else {
         alert("Server replied: " + txt);
       }
-    } catch (err) {
-      alert("Send failed: " + err);
+    } catch (e) {
+      alert("Send failed: " + e);
+    } finally {
+      btn.disabled = false;
     }
   });
 </script>
