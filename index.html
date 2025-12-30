@@ -6,7 +6,7 @@
 
 <style>
   body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
-  .title-box {background:#003366; color:white; padding:18px; border-radius:12px; text-align:center; margin-bottom:20px;}
+  .title-box {background:#003366;color:white;padding:18px;border-radius:12px;text-align:center;margin-bottom:20px;}
   .title-main {font-size:22px; font-weight:bold;}
   .title-sub-big {font-size:26px; font-weight:bold; margin-top:10px;}
   .title-small {font-size:16px; margin-top:6px; opacity:0.95;}
@@ -21,8 +21,6 @@
   textarea {min-height:80px; resize:vertical;}
   #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:white;}
   #submitBtn:active {opacity:0.8;}
-  #submitBtn[disabled]{opacity:.65; cursor:not-allowed;}
-  .note {font-size:13px; color:#555; margin-top:8px;}
 </style>
 </head>
 
@@ -34,15 +32,14 @@
   <div class="title-small">HSE Section</div>
 </div>
 
-<form id="checklistForm">
-
+<form id="securityForm">
   <div class="section-box">
     <label>Date:</label>
-    <input id="checkDate" name="date" type="date" required>
+    <input type="date" name="date" required>
 
     <br><br>
     <label>Shift:</label>
-    <select id="shift" name="shift" required>
+    <select name="shift" required>
       <option value="">Select shift</option>
       <option value="Day">Day</option>
       <option value="Night">Night</option>
@@ -50,125 +47,128 @@
 
     <br><br>
     <label>Security Guard Name:</label>
-    <input id="securityName" name="securityName" type="text" placeholder="Enter security guard name" required>
+    <input type="text" name="securityName" placeholder="Enter security guard name" required>
 
     <br><br>
     <label>Remarks / Notes:</label>
-    <textarea id="notes" name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
+    <textarea name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
   </div>
 
   <h2>Access Control & Gates</h2>
-  <div class="item"><div>Gates operational & locks working</div><select class="check-item" name="ac_gatesLocks"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Visitor entry logged</div><select class="check-item" name="ac_visitorLogged"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No unauthorized entry</div><select class="check-item" name="ac_noUnauthorized"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Staircases & elevators securely closed</div><select class="check-item" name="ac_stairsElevClosed"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Gates operational & locks working</div>
+    <select class="check-item" name="ac_gatesLocks" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
+  </div>
+  <div class="item"><div>Visitor entry logged</div>
+    <select class="check-item" name="ac_visitorLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
+  </div>
+  <div class="item"><div>No unauthorized entry</div>
+    <select class="check-item" name="ac_noUnauthorized" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
+  </div>
+  <div class="item"><div>Staircases & elevators securely closed</div>
+    <select class="check-item" name="ac_stairsElevClosed" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select>
+  </div>
 
   <h2>CCTV System</h2>
-  <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Lenses clean</div><select class="check-item" name="cctv_lensesClean"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Night vision checked</div><select class="check-item" name="cctv_nightVision"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Live monitoring done</div><select class="check-item" name="cctv_liveMonitoring"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Lenses clean</div><select class="check-item" name="cctv_lensesClean" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Night vision checked</div><select class="check-item" name="cctv_nightVision" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Live monitoring done</div><select class="check-item" name="cctv_liveMonitoring" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Perimeter & Outdoor Patrol</h2>
-  <div class="item"><div>Fence/walls intact</div><select class="check-item" name="per_fenceWalls"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Waste area safe</div><select class="check-item" name="per_wasteAreaSafe"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fence/walls intact</div><select class="check-item" name="per_fenceWalls" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Waste area safe</div><select class="check-item" name="per_wasteAreaSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Internal Building Patrol</h2>
-  <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency lighting OK</div><select class="check-item" name="int_emergencyLighting"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire extinguishers sealed</div><select class="check-item" name="int_fireExtSealed"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Emergency lighting OK</div><select class="check-item" name="int_emergencyLighting" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fire extinguishers sealed</div><select class="check-item" name="int_fireExtSealed" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Student & Staff Safety</h2>
-  <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No crowding at gates</div><select class="check-item" name="ss_noCrowding"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>No crowding at gates</div><select class="check-item" name="ss_noCrowding" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Environmental & Housekeeping</h2>
-  <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Noise levels normal</div><select class="check-item" name="eh_noiseNormal"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Noise levels normal</div><select class="check-item" name="eh_noiseNormal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Traffic & Parking</h2>
-  <div class="item"><div>Bus area monitored</div><select class="check-item" name="tp_busArea"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire route accessible</div><select class="check-item" name="tp_fireRoute"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Bus area monitored</div><select class="check-item" name="tp_busArea" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fire route accessible</div><select class="check-item" name="tp_fireRoute" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Reporting & Documentation</h2>
-  <div class="item"><div>CCTV incidents logged</div><select class="check-item" name="rd_cctvLogged"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Visitor logs updated</div><select class="check-item" name="rd_visitorLogs"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>CCTV incidents logged</div><select class="check-item" name="rd_cctvLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Visitor logs updated</div><select class="check-item" name="rd_visitorLogs" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <h2>Emergency Preparedness</h2>
-  <div class="item"><div>Fire alarm normal</div><select class="check-item" name="ep_fireAlarm"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>First aid kits stocked</div><select class="check-item" name="ep_firstAid"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess"><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Fire alarm normal</div><select class="check-item" name="ep_fireAlarm" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>First aid kits stocked</div><select class="check-item" name="ep_firstAid" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
   <button id="submitBtn" type="submit">SUBMIT</button>
-  <div class="note">It will email the PDF + HTML automatically. No email app pop-up.</div>
 </form>
 
 <script>
-  // ✅ Your Web App URL:
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
-  const RECEIVER_EMAIL = "partygifts850@gmail.com"; // Apps Script adds br1-ohs too
-
-  // Color Yes/No
-  document.querySelectorAll('.check-item').forEach(sel=>{
-    sel.addEventListener('change', ()=>{
+  // COLOR SELECTS (Yes/No)
+  document.querySelectorAll('.check-item').forEach(function(sel){
+    sel.addEventListener('change', function(){
       sel.classList.remove('yes','no');
       if (sel.value === 'Yes') sel.classList.add('yes');
       else if (sel.value === 'No') sel.classList.add('no');
     });
   });
 
-  const form = document.getElementById("checklistForm");
-  const btn  = document.getElementById("submitBtn");
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
 
-  function collectFormData() {
-    const data = { receiverEmail: RECEIVER_EMAIL };
-    form.querySelectorAll("input, select, textarea").forEach(el=>{
+  // put ANY email here (your script will also send to br1-ohs automatically)
+  const RECEIVER_EMAIL = "partygifts850@gmail.com";
+
+  const form = document.getElementById("securityForm");
+
+  function collectData() {
+    const data = {};
+    form.querySelectorAll("input, select, textarea").forEach(el => {
       if (!el.name) return;
       data[el.name] = (el.value || "").trim();
     });
+    data.receiverEmail = RECEIVER_EMAIL;
     return data;
   }
 
-  form.addEventListener("submit", async (e)=>{
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = "SENDING...";
+    const payload = collectData();
 
     try {
       const res = await fetch(WEB_APP_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(collectFormData())
+        body: JSON.stringify(payload)
       });
       const txt = (await res.text()).trim();
       if (txt === "OK") {
         alert("Sent successfully ✅");
         form.reset();
-        document.querySelectorAll('.check-item').forEach(s=>s.classList.remove('yes','no'));
       } else {
         alert("Server replied: " + txt);
       }
     } catch (err) {
       alert("Send failed: " + err);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = "SUBMIT";
     }
   });
 </script>
