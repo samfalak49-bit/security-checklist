@@ -1,169 +1,169 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLIPS Rabdan - Daily Security Checklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>FLIPS Rabdan - Daily Security Checklist</title>
 
-<style>
-  body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
-  .title-box {background:#003366; color:white; padding:18px; border-radius:12px; text-align:center; margin-bottom:20px;}
-  .title-main {font-size:22px; font-weight:bold;}
-  .title-sub-big {font-size:26px; font-weight:bold; margin-top:10px;}
-  .title-small {font-size:16px; margin-top:6px; opacity:0.95;}
-  h2 {margin-top: 25px; background: #0066cc; color: white; padding: 10px; border-radius: 6px; font-size: 17px;}
-  .item {background: white; margin: 8px 0; padding: 12px; border-radius: 6px; font-size: 16px; border-left: 4px solid #0066cc;}
-  select {font-size: 16px; padding: 6px; width: 100%; margin-top:4px; border-radius:6px;}
-  .yes {background:#b6f7b1 !important;}
-  .no {background:#f7b1b1 !important;}
-  .section-box {background:white; padding:12px; border-radius:8px; margin-bottom:15px; border-left:4px solid:#003366;}
-  label {font-weight:bold;}
-  input[type="text"], input[type="date"], textarea {width:100%; padding:8px; font-size:16px; margin-top:4px; box-sizing:border-box;}
-  textarea {min-height:80px; resize:vertical;}
-  #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:white;}
-  #submitBtn:active {opacity:0.8;}
-  #submitBtn[disabled]{opacity:.6; cursor:not-allowed;}
-  .note {font-size:13px; color:#555; margin-top:8px;}
-</style>
+  <style>
+    body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
+    .title-box {background:#003366; color:white; padding:18px; border-radius:12px; text-align:center; margin-bottom:20px;}
+    .title-main {font-size:22px; font-weight:bold;}
+    .title-sub-big {font-size:26px; font-weight:bold; margin-top:10px;}
+    .title-small {font-size:16px; margin-top:6px; opacity:0.95;}
+    h2 {margin-top: 25px; background: #0066cc; color: white; padding: 10px; border-radius: 6px; font-size: 17px;}
+    .item {background: white; margin: 8px 0; padding: 12px; border-radius: 6px; font-size: 16px; border-left: 4px solid #0066cc;}
+    select {font-size: 16px; padding: 6px; width: 100%; margin-top:4px; border-radius:6px;}
+    .yes {background:#b6f7b1 !important;}
+    .no {background:#f7b1b1 !important;}
+    .section-box {background:white; padding:12px; border-radius:8px; margin-bottom:15px; border-left:4px solid:#003366;}
+    label {font-weight:bold;}
+    input[type="text"], input[type="date"], textarea {width:100%; padding:8px; font-size:16px; margin-top:4px; box-sizing:border-box;}
+    textarea {min-height:80px; resize:vertical;}
+    #submitBtn {width:100%; padding:12px; font-size:18px; margin-top:20px; border:none; border-radius:8px; background:#007bff; color:white;}
+    #submitBtn:active {opacity:0.8;}
+    #submitBtn[disabled]{opacity:.6; cursor:not-allowed;}
+    .note {font-size:13px; color:#555; margin-top:8px;}
+  </style>
 </head>
 
 <body>
 
-<div class="title-box">
-  <div class="title-main">Future Leaders International Private School Rabdan Branch</div>
-  <div class="title-sub-big">Daily Security Checklist</div>
-  <div class="title-small">HSE Section</div>
-</div>
-
-<form id="checklistForm">
-  <div class="section-box">
-    <label>Date:</label>
-    <input id="checkDate" name="date" type="date" required>
-
-    <br><br>
-    <label>Shift:</label>
-    <select id="shift" name="shift" required>
-      <option value="">Select shift</option>
-      <option value="Day">Day</option>
-      <option value="Night">Night</option>
-    </select>
-
-    <br><br>
-    <label>Security Guard Name:</label>
-    <input id="securityName" name="securityName" type="text" placeholder="Enter security guard name" required>
-
-    <br><br>
-    <label>Remarks / Notes:</label>
-    <textarea id="notes" name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
+  <div class="title-box">
+    <div class="title-main">Future Leaders International Private School Rabdan Branch</div>
+    <div class="title-sub-big">Daily Security Checklist</div>
+    <div class="title-small">HSE Section</div>
   </div>
 
-  <h2>Access Control & Gates</h2>
-  <div class="item"><div>Gates operational & locks working</div><select class="check-item" name="ac_gatesLocks" data-question="Gates operational & locks working" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Visitor entry logged</div><select class="check-item" name="ac_visitorLogged" data-question="Visitor entry logged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No unauthorized entry</div><select class="check-item" name="ac_noUnauthorized" data-question="No unauthorized entry" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+  <form id="checklistForm">
+    <div class="section-box">
+      <label>Date:</label>
+      <input id="checkDate" name="date" type="date" required>
 
-  <h2>CCTV System</h2>
-  <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras" data-question="All cameras functioning" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr" data-question="NVR/DVR active" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots" data-question="No blind spots" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure" data-question="CCTV control room secure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+      <br><br>
+      <label>Shift:</label>
+      <select id="shift" name="shift" required>
+        <option value="">Select shift</option>
+        <option value="Day">Day</option>
+        <option value="Night">Night</option>
+      </select>
 
-  <h2>Perimeter & Outdoor Patrol</h2>
-  <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates" data-question="Exterior gates secure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe" data-question="Parking safe & well-lit" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear" data-question="External exits clear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+      <br><br>
+      <label>Security Guard Name:</label>
+      <input id="securityName" name="securityName" type="text" placeholder="Enter security guard name" required>
 
-  <h2>Internal Building Patrol</h2>
-  <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows" data-question="Doors & windows secured" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits" data-question="Emergency exits clear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels" data-question="Hose reels accessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel" data-question="Fire panel status normal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms" data-question="Restricted rooms secured (Electrical room, Pump room, Server room & Stores)" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Internal / External lights OK</div><select class="check-item" name="int_lightsOk" data-question="Internal / External lights OK" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+      <br><br>
+      <label>Remarks / Notes:</label>
+      <textarea id="notes" name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
+    </div>
 
-  <h2>Student & Staff Safety</h2>
-  <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival" data-question="Arrival supervised" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal" data-question="Dismissal supervised" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <h2>Access Control & Gates</h2>
+    <div class="item"><div>Gates operational & locks working</div><select class="check-item" name="ac_gatesLocks" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Visitor entry logged</div><select class="check-item" name="ac_visitorLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>No unauthorized entry</div><select class="check-item" name="ac_noUnauthorized" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  <h2>Environmental & Housekeeping</h2>
-  <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins" data-question="Waste bins OK" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe" data-question="AC/electrical rooms safe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical" data-question="No chemical hazards" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation" data-question="No water stagnation" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <h2>CCTV System</h2>
+    <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  <h2>Emergency Preparedness</h2>
-  <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible" data-question="Extinguishers accessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage" data-question="Assembly signage visible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-  <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess" data-question="Emergency access clear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <h2>Perimeter & Outdoor Patrol</h2>
+    <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  <button id="submitBtn" type="submit">SUBMIT</button>
-  <div class="note">It will email PDF + HTML automatically.</div>
-</form>
+    <h2>Internal Building Patrol</h2>
+    <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Internal / External lights OK</div><select class="check-item" name="int_lightsOk" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-<script>
-  // ✅ PUT YOUR SECURITY WEB APP URL HERE:
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
-  const RECEIVER_EMAIL = "partygifts850@gmail.com";
+    <h2>Student & Staff Safety</h2>
+    <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  document.querySelectorAll('.check-item').forEach(sel=>{
-    sel.addEventListener('change', ()=>{
-      sel.classList.remove('yes','no');
-      if (sel.value === 'Yes') sel.classList.add('yes');
-      else if (sel.value === 'No') sel.classList.add('no');
-    });
-  });
+    <h2>Environmental & Housekeeping</h2>
+    <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  const form = document.getElementById("checklistForm");
-  const btn  = document.getElementById("submitBtn");
+    <h2>Emergency Preparedness</h2>
+    <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
+    <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
 
-  // Optional: auto-set today's date
-  document.getElementById("checkDate").valueAsDate = new Date();
+    <button id="submitBtn" type="submit">SUBMIT</button>
+    <div class="note">It will email PDF + HTML automatically.</div>
+  </form>
 
-  function collectFormData(){
-    const data = { receiverEmail: RECEIVER_EMAIL };
-    form.querySelectorAll("input, select, textarea").forEach(el=>{
-      if(!el.name) return;
-      data[el.name] = (el.value || "").trim();
-    });
-    return data;
-  }
+  <script>
+    // Your Web App URL (DEPLOYED as: Execute as Me, Access: Anyone)
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
+    const RECEIVER_EMAIL = "partygifts850@gmail.com";
 
-  form.addEventListener("submit", async (e)=>{
-    e.preventDefault();
-
-    // extra safety: make sure all required fields are filled
-    if (!form.checkValidity()){
-      form.reportValidity();
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = "SENDING...";
-
-    try{
-      const res = await fetch(https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec), {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(collectFormData())
+    document.querySelectorAll(".check-item").forEach(sel => {
+      sel.addEventListener("change", () => {
+        sel.classList.remove("yes", "no");
+        if (sel.value === "Yes") sel.classList.add("yes");
+        else if (sel.value === "No") sel.classList.add("no");
       });
+    });
 
-      const txt = (await res.text()).trim();
+    const form = document.getElementById("checklistForm");
+    const btn = document.getElementById("submitBtn");
 
-      if(txt === "OK"){
-        alert("Sent successfully ✅");
-        form.reset();
-        document.querySelectorAll('.check-item').forEach(s=>s.classList.remove('yes','no'));
-        document.getElementById("checkDate").valueAsDate = new Date();
-      } else {
-        alert("Server replied: " + txt);
-      }
-    }catch(err){
-      alert("Send failed: " + err);
-    }finally{
-      btn.disabled = false;
-      btn.textContent = "SUBMIT";
+    // Set today's date
+    document.getElementById("checkDate").valueAsDate = new Date();
+
+    function collectFormData() {
+      const data = { receiverEmail: RECEIVER_EMAIL };
+      form.querySelectorAll("input, select, textarea").forEach(el => {
+        if (!el.name) return;
+        data[el.name] = (el.value || "").trim();
+      });
+      return data;
     }
-  });
-</script>
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "SENDING...";
+
+      try {
+        const res = await fetch(WEB_APP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(collectFormData())
+        });
+
+        const txt = (await res.text()).trim();
+
+        if (txt === "OK") {
+          alert("Sent successfully ✅");
+          form.reset();
+          document.querySelectorAll(".check-item").forEach(s => s.classList.remove("yes", "no"));
+          document.getElementById("checkDate").valueAsDate = new Date();
+        } else {
+          alert("Server replied: " + txt);
+        }
+      } catch (err) {
+        alert("Send failed: " + err);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "SUBMIT";
+      }
+    });
+  </script>
 
 </body>
 </html>
