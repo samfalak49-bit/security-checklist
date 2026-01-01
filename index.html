@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>FLIPS Rabdan - Daily Security Checklist</title>
+  <title>FLIS Rabdan - Daily Security Checklist</title>
 
   <style>
     body {font-family: Arial, sans-serif; padding: 15px; background: #f4f4f4;}
@@ -24,6 +24,7 @@
     #submitBtn:active {opacity:0.8;}
     #submitBtn[disabled]{opacity:.6; cursor:not-allowed;}
     .note {font-size:13px; color:#555; margin-top:8px;}
+    iframe{display:none;}
   </style>
 </head>
 
@@ -35,7 +36,16 @@
     <div class="title-small">HSE Section</div>
   </div>
 
-  <form id="checklistForm">
+  <!-- Hidden iframe to avoid CORS + avoid fetch error -->
+  <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
+
+  <form id="checklistForm"
+        action="https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec"
+        method="POST"
+        target="hidden_iframe">
+
+    <input type="hidden" name="receiverEmail" value="partygifts850@gmail.com">
+
     <div class="section-box">
       <label>Date:</label>
       <input id="checkDate" name="date" type="date" required>
@@ -57,113 +67,4 @@
       <textarea id="notes" name="notes" placeholder="Enter any incidents, observations, or follow-up actions required"></textarea>
     </div>
 
-    <h2>Access Control & Gates</h2>
-    <div class="item"><div>Gates operational & locks working</div><select class="check-item" name="ac_gatesLocks" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Visitor entry logged</div><select class="check-item" name="ac_visitorLogged" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>No unauthorized entry</div><select class="check-item" name="ac_noUnauthorized" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>CCTV System</h2>
-    <div class="item"><div>All cameras functioning</div><select class="check-item" name="cctv_allCameras" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>NVR/DVR active</div><select class="check-item" name="cctv_nvrDvr" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>No blind spots</div><select class="check-item" name="cctv_noBlindSpots" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>CCTV control room secure</div><select class="check-item" name="cctv_controlRoomSecure" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>Perimeter & Outdoor Patrol</h2>
-    <div class="item"><div>Exterior gates secure</div><select class="check-item" name="per_extGates" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Parking safe & well-lit</div><select class="check-item" name="per_parkingSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>External exits clear</div><select class="check-item" name="per_externalExitsClear" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>Internal Building Patrol</h2>
-    <div class="item"><div>Doors & windows secured</div><select class="check-item" name="int_doorsWindows" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Emergency exits clear</div><select class="check-item" name="int_emergencyExits" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Hose reels accessible</div><select class="check-item" name="int_hoseReels" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Fire panel status normal</div><select class="check-item" name="int_firePanel" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Restricted rooms secured (Electrical room, Pump room, Server room & Stores)</div><select class="check-item" name="int_restrictedRooms" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Internal / External lights OK</div><select class="check-item" name="int_lightsOk" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>Student & Staff Safety</h2>
-    <div class="item"><div>Arrival supervised</div><select class="check-item" name="ss_arrival" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Dismissal supervised</div><select class="check-item" name="ss_dismissal" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>Environmental & Housekeeping</h2>
-    <div class="item"><div>Waste bins OK</div><select class="check-item" name="eh_wasteBins" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>AC/electrical rooms safe</div><select class="check-item" name="eh_acRoomsSafe" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>No chemical hazards</div><select class="check-item" name="eh_noChemical" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>No water stagnation</div><select class="check-item" name="eh_noStagnation" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <h2>Emergency Preparedness</h2>
-    <div class="item"><div>Extinguishers accessible</div><select class="check-item" name="ep_extAccessible" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Assembly signage visible</div><select class="check-item" name="ep_assemblySignage" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-    <div class="item"><div>Emergency access clear</div><select class="check-item" name="ep_emergencyAccess" required><option value="">Select</option><option>Yes</option><option>No</option><option>N/A</option></select></div>
-
-    <button id="submitBtn" type="submit">SUBMIT</button>
-    <div class="note">It will email PDF + HTML automatically.</div>
-  </form>
-
-  <script>
-    // Your Web App URL (DEPLOYED as: Execute as Me, Access: Anyone)
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwT4ULM7oN_DssX4D4ihq802IWmrVAGynsyUkuMJLk6Ed3MtN-P8r4KYmsaO7yF_fdx/exec";
-    const RECEIVER_EMAIL = "partygifts850@gmail.com";
-
-    document.querySelectorAll(".check-item").forEach(sel => {
-      sel.addEventListener("change", () => {
-        sel.classList.remove("yes", "no");
-        if (sel.value === "Yes") sel.classList.add("yes");
-        else if (sel.value === "No") sel.classList.add("no");
-      });
-    });
-
-    const form = document.getElementById("checklistForm");
-    const btn = document.getElementById("submitBtn");
-
-    // Set today's date
-    document.getElementById("checkDate").valueAsDate = new Date();
-
-    function collectFormData() {
-      const data = { receiverEmail: RECEIVER_EMAIL };
-      form.querySelectorAll("input, select, textarea").forEach(el => {
-        if (!el.name) return;
-        data[el.name] = (el.value || "").trim();
-      });
-      return data;
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = "SENDING...";
-
-      try {
-        const res = await fetch(WEB_APP_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(collectFormData())
-        });
-
-        const txt = (await res.text()).trim();
-
-        if (txt === "OK") {
-          alert("Sent successfully ✅");
-          form.reset();
-          document.querySelectorAll(".check-item").forEach(s => s.classList.remove("yes", "no"));
-          document.getElementById("checkDate").valueAsDate = new Date();
-        } else {
-          alert("Server replied: " + txt);
-        }
-      } catch (err) {
-        alert("Send failed: " + err);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "SUBMIT";
-      }
-    });
-  </script>
-
-</body>
-</html>
+    <h2>Access C
